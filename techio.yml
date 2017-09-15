@@ -4,7 +4,7 @@ plan:
   statement: markdowns/welcome.md
 projects:
   nodejs:
-    root: /nodejs-project
+    root: /sms/send
     runner:
       name: techio/node-npm-runner
       version: latest
