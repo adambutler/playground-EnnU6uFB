@@ -35,7 +35,7 @@ it('should have a valid to number', function () {
 
 it('should have text', function () {
   try {
-    const to = app.__get__('to')
+    const text = app.__get__('text')
     assert.notEqual(text, '')
   } catch (error) {
     printMessage('Hint 💡', 'You should provide some text.')
