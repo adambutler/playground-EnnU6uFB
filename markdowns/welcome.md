@@ -7,7 +7,7 @@ The source code is on [GitHub](https://github.com/TechDotIO/nodejs-template), pl
 
 # Hands-on Demo
 
-@[Send an SMS]({ "stubs": ["app.js"], "command": "node_modules/mocha/bin/mocha app.spec.js --reporter list" })
+@[Send an SMS]({ "stubs": ["app.js"], "command": "node_modules/mocha/bin/mocha app.spec.js --reporter list --no-exit" })
 
 Check out the markdown file [`welcome.md`](https://github.com/TechDotIO/nodejs-template/blob/master/markdowns/welcome.md) to see how this exercise is injected into the template.
 

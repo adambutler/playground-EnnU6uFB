@@ -43,6 +43,11 @@ it('should have text', function () {
   }
 })
 
+// Allow nexmo.message.sendSms 5000ms to complete
+setTimeout(function(){
+  process.exit()
+}, 5000)
+
 function printMessage(channel, message) {
   console.log('\nTECHIO> message --channel "' + channel + '" "' + message + '"')
 }
