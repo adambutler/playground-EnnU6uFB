@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "license": "ISC",
   "dependencies": {
-    "nexmo": "^2.0.2"
-  },
-  "private": true,
-  "devDependencies": {
+    "nexmo": "^2.0.2",
     "mocha": "^3.5.3",
     "rewire": "^2.5.2"
   },
+  "private": true,
   "scripts": {
     "test": "mocha app.spec.js"
   }
