@@ -6,6 +6,12 @@ let passed = true
 
 console.log('\nTECHIO> redirect-streams null')
 
+// Overide the console.log & console.error function and print to response output
+app.__set__('console', {
+  log: (message) => { printMessage('Response 🔁', JSON.stringify(message), false) },
+  error: (message) => { printMessage('Response 🔁', JSON.stringify(message), true) },
+})
+
 it('should have credentials', function () {
   try {
     const nexmo = app.__get__('nexmo')
@@ -57,12 +63,14 @@ setTimeout(function(){
   process.exit()
 }, 5000)
 
-function printMessage(channel, message) {
-  if (passed) {
+function printMessage(channel, message, isError = true) {
+  if (isError && passed) {
     passed = false
+    console.log('\nTECHIO> success false')
     console.log('\nTECHIO> redirect-streams --reset')
-    console.log('\nTECHIO> message "Uh oh. Looks like something went wrong! Check out the hints below:"')
+    console.log('TECHIO> message "Uh oh. Looks like something went wrong! Check out the details below:"')
     console.log('\nTECHIO> redirect-streams null')
   }
+
   console.log('\nTECHIO> message --channel "' + channel + '" "' + message + '"')
 }
