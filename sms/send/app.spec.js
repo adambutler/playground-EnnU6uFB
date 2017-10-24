@@ -2,6 +2,10 @@
 const rewire = require('rewire')
 const app = rewire('./app.js')
 
+let passed = true
+
+console.log('\nTECHIO> redirect-streams null')
+
 it('should have credentials', function () {
   try {
     const nexmo = app.__get__('nexmo')
@@ -45,9 +49,20 @@ it('should have text', function () {
 
 // Allow nexmo.message.sendSms 5000ms to complete
 setTimeout(function(){
+  if (passed) {
+    console.log('\nTECHIO> redirect-streams --reset')
+    console.log('\nTECHIO> message "Great job! You should receive an SMS momentarily."')
+  }
+
   process.exit()
 }, 5000)
 
 function printMessage(channel, message) {
+  if (passed) {
+    passed = false
+    console.log('\nTECHIO> redirect-streams --reset')
+    console.log('\nTECHIO> message "Uh oh. Looks like something went wrong! Check out the hints below:"')
+    console.log('\nTECHIO> redirect-streams null')
+  }
   console.log('\nTECHIO> message --channel "' + channel + '" "' + message + '"')
 }
